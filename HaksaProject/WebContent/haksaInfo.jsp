@@ -30,6 +30,7 @@
 		font-style: normal;
 		font-weight: bold;
 		letter-spacing: 1.4px;
+		top:0px; left:0px;
 		position: fixed;
 	}
 	
@@ -143,15 +144,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="index.jsp"><img src="images/kh.png" title="Main"></a>
 	<div id="menu">
 		<div class="item daegu1">
 			<img src="images/bubble.png" title="" class="circle" /> <a href="#"
 				class="icon"></a>
 			<h2>register</h2>
 			<ul>
-				<li><a href="student.jsp">student</a></li>
-				<li><a href="professor.jsp">professor</a></li>
-				<li><a href="manager.jsp">manager</a></li>
+				<li><a href="student/student.jsp">student</a></li>
+				<li><a href="professor/professor.jsp">professor</a></li>
+				<li><a href="manager/manager.jsp">manager</a></li>
 			</ul>
 		</div>
 		<div class="item daegu2">
@@ -159,9 +161,9 @@
 				class="icon"></a>
 			<h2>search</h2>
 			<ul>
-				<li><a href="student_search.jsp">student</a></li>
-				<li><a href="professor_search.jsp">professor</a></li>
-				<li><a href="manager_search.jsp">manager</a></li>
+				<li><a href="student/student_searchForm.jsp">student</a></li>
+				<li><a href="professor/professor_searchForm.jsp">professor</a></li>
+				<li><a href="manager/manager_searchForm.jsp">manager</a></li>
 			</ul>
 		</div>
 		<div class="item daegu3">
@@ -169,9 +171,9 @@
 				class="icon"></a>
 			<h2>delete</h2>
 			<ul>
-				<li><a href="student_delete.jsp">student</a></li>
-				<li><a href="professor_delete.jsp">professor</a></li>
-				<li><a href="manager_delete.jsp">manager</a></li>
+				<li><a href="student/student_deleteForm.jsp">student</a></li>
+				<li><a href="professor/professor_deleteForm.jsp">professor</a></li>
+				<li><a href="manager/manager_deleteForm.jsp">manager</a></li>
 			</ul>
 		</div>
 		<div class="item daegu4">
@@ -179,9 +181,9 @@
 				class="icon"></a>
 			<h2>list</h2>
 			<ul>
-				<li><a href="listStudent">student</a></li>
-				<li><a href="listProfessor">professor</a></li>
-				<li><a href="listManager">manager</a></li>
+				<li><a href="student/studentList.jsp">student</a></li>
+				<li><a href="professor/professorList.jsp">professor</a></li>
+				<li><a href="manager/managerList.jsp">manager</a></li>
 				<li><a href="haksaList">haksaList</a></li>
 			</ul>
 		</div>
@@ -190,9 +192,9 @@
 				class="icon"></a>
 			<h2>update</h2>
 			<ul>
-				<li><a href="student_update.jsp">student</a></li>
-				<li><a href="professor_update.jsp">professor</a></li>
-				<li><a href="manager_update.jsp">manager</a></li>
+				<li><a href="student/student_updateForm.jsp">student</a></li>
+				<li><a href="professor/professor_updateForm.jsp">professor</a></li>
+				<li><a href="manager/manager_updateForm.jsp">manager</a></li>
 			</ul>
 		</div>
 	</div>

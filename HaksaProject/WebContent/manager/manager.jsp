@@ -8,7 +8,7 @@
 		width: 250px; height: 200px;
 	}
 	
-	#studentRegister{
+	#managerRegister{
 		border: 1px solid skyblue;
 		border-radius: 20px;
 		width: 300px; height: 300px;
@@ -20,9 +20,9 @@
 <title>KHJSP</title>
 </head>
 <body>
-<h1>학생등록</h1>
-<div id="studentRegister">
-	<form action="studentRegister.jsp" method="get">
+<h1>관리자등록</h1>
+<div id="managerRegister"> 
+	<form action="managerRegister.jsp" method="get">
 		<ul>
 			<li><label for="나이">나이</label>
 				<input type="number" name="age">
@@ -32,13 +32,15 @@
 				<input type="text" name="name" size="20">
 			</li>
 			
-			<li><label for="학번">학번</label>
-				<input type="number" name="hakbun" size="20">
+			<li><label for="부서">부서</label>
+				<input type="text" name="part" size="20">
 			</li>
 			
-			<li><input type="image" src="images/submit.jpg" class="kh01"></li>
+			<li><input type="image" src="../images/submit.jpg" class="kh01"></li>
 		</ul>
 	</form>
 </div>
+<a href="managerList.jsp">관리자 전체출력</a>
+<a href="../haksaInfo.jsp">학사관리</a>
 </body>
 </html>
