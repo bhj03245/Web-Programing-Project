@@ -44,7 +44,7 @@ ul#leftmenu .daegu6 a{background-color: purple;}
 </head>
 <body>
 <ul id="leftmenu">
- <li class="daegu1"><a href="index.jsp">학사소개</a></li>
+ <li class="daegu1"><a href="index.jsp">메인페이지</a></li>
  <li class="daegu2"><a href="index.jsp">심리학과</a></li>
  <li class="daegu3"><a href="">컴퓨터공학과</a></li>
  <li class="daegu4"><a href="">행정학과</a></li>

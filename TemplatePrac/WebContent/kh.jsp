@@ -6,6 +6,7 @@
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery.innerfade.js"></script>
 <style>
+	body{background-image: url(images/back02.jpg)}
 	#kh01{
 		position: absolute;
 		top: 200px; left: 540px;
@@ -22,7 +23,7 @@
 <div id="kh01">
 	<ul id="portfolio"> 
 		<li>
-			<a href="#">
+			<a href="index.jsp?page=haksaInfo">
 				<img src="images/cat.jpg" title="image1" class="khmain"/>
 			</a>
 		</li>

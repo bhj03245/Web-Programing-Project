@@ -6,6 +6,8 @@
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery.effects.core.js"></script>
 <style>
+body{background-image: url(images/back02.jpg)}
+
 	* {
 		margin: 0;
 		padding: 0;

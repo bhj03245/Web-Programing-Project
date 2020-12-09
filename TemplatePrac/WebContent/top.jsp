@@ -9,7 +9,6 @@
 <script src="js/jquery.innerfade.js"></script>
 <style>
 body {
-	background: #ccc;
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	line-height: 1.6;
@@ -97,7 +96,7 @@ a:hover{text-decoration: underline;}
 		<div class="menu">
 			<ul>
 				<li><a href="index.jsp?page=haksaInfo">학사소개</a></li>
-				<li><a href="#">커뮤니티</a></li>
+				<li><a href="index.jsp?page=boardList">커뮤니티</a></li>
 				<li><a href="#">모집과정</a></li>
 				<li><a href="#">KH반클래스</a></li>
 				<li><a href="#">포트폴리오</a></li>
@@ -106,7 +105,7 @@ a:hover{text-decoration: underline;}
 	</div>
 	
 	<div id="homeregister">
-      <a href="#">홈|</a>
+      <a href="index.jsp">홈|</a>
       <a href="#">회원가입|</a>
       <a href="#">로그인</a>
    	</div>

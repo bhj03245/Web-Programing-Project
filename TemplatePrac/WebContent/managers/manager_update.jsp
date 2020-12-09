@@ -17,8 +17,8 @@
 	String part = request.getParameter("part");
 	String updateName = request.getParameter("updateName");
 	Class.forName("com.mysql.jdbc.Driver");
-	//Connection conn = DriverManager.getConnection("jdbc:mysql://underdogb.cafe24.com:3306/underdogb?characterEncoding=utf8", "underdogb", "khacademy1!");
-	Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/underdogb?characterEncoding=utf8", "underdogb", "khacademy1!"); //cafe24 배포 이후 
+	Connection conn = DriverManager.getConnection("jdbc:mysql://underdogb.cafe24.com:3306/underdogb?characterEncoding=utf8", "underdogb", "khacademy1!");
+	//Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/underdogb?characterEncoding=utf8", "underdogb", "khacademy1!"); //cafe24 배포 이후 
 	String sql = "update managerhj set age=?, name=?, part=? where name = ?";
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1,age);
