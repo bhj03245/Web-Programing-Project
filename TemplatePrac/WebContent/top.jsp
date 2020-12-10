@@ -5,8 +5,6 @@
 <head>
 <meta charset="utf-8">
 <title>KH정보교육원</title>
-<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
-<script src="js/jquery.innerfade.js"></script>
 <style>
 body {
 	font-family: Arial, sans-serif;
@@ -96,7 +94,7 @@ a:hover{text-decoration: underline;}
 		<div class="menu">
 			<ul>
 				<li><a href="index.jsp?page=haksaInfo">학사소개</a></li>
-				<li><a href="index.jsp?page=boardList">커뮤니티</a></li>
+				<li><a href="index.jsp?page=board/boardList">커뮤니티</a></li>
 				<li><a href="#">모집과정</a></li>
 				<li><a href="#">KH반클래스</a></li>
 				<li><a href="#">포트폴리오</a></li>
@@ -130,43 +128,5 @@ a:hover{text-decoration: underline;}
       </ul>
    </div>
 	
-	<script type="text/javascript">
-		$(function() {
-
-			$(".menu li a").wrapInner('<span class="out"></span>');
-
-			$(".menu li a").each(
-					function() {
-						$('<span class="over">' + $(this).text() + '</span>')
-								.appendTo(this);
-					});
-
-			$(".menu li a").hover(function() {
-				$(".out", this).stop().animate({
-					'top' : '45px'
-				}, 200);
-				$(".over", this).stop().animate({
-					'top' : '0px'
-				}, 200);
-
-			}, function() {
-				$(".out", this).stop().animate({
-					'top' : '0px'
-				}, 200);
-				$(".over", this).stop().animate({
-					'top' : '-45px'
-				}, 200);
-			});
-
-		});
-		
-		$('#news').innerfade({
-	         animationtype: 'slide',
-	         speed: 750,
-	         timeout: 2000,
-	         type: 'sequence',
-	         containerheight: '1em'
-	      });
-	</script>
 </body>
 </html>

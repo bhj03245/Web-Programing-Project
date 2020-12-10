@@ -49,8 +49,8 @@
 		Connection conn = DriverManager.getConnection("jdbc:mysql://underdogb.cafe24.com:3306/underdogb?characterEncoding=utf8", "underdogb", "khacademy1!");
 		//Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/underdogb?characterEncoding=utf8", "underdogb", "khacademy1!"); //cafe24 배포 이후 
 		String sql = "select no,title,content,author,nal,readcount from boardhj";
-		PreparedStatement stmt = conn.prepareStatement(sql);
-		ResultSet rs = stmt.executeQuery();
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
 		while(rs.next()){
 			no = rs.getInt("no");
 			title = rs.getString("title");
@@ -58,14 +58,16 @@
 			author = rs.getString("author");
 			nal = rs.getString("nal");
 			readcount = rs.getInt("readcount");
-			out.print("<tr><td>"+no+"</td><td>"+title+"</td><td>"+content+"</td><td>"+author+"</td><td>"+nal+"</td><td>"+readcount+"</td><td><a href=boardDelete.jsp?no="+no+">삭제</a></td></tr>");
+			out.print("<tr><td>"+no+"</td><td>"+title+"</td><td>"+content+"</td><td>"+author+"</td><td>"+nal+"</td><td>"+readcount+"</td><td><a href=board/boardDelete.jsp?no="+no+">삭제</a></td></tr>");
 		}
-		stmt.close();
+		pstmt.close();
 		rs.close();
 		conn.close();
 	%>
 </table>
-<a href="index.jsp?page=boardWrite">글작성</a>
+<a href="index.jsp?page=board/boardWrite">게시판글작성</a>&nbsp;&nbsp;&nbsp;
+<a href="index.jsp?page=boardSearchForm">게시판글검색</a>&nbsp;&nbsp;&nbsp;
+<a href="index.jsp?page=board/boardUpdateForm">게시판글수정</a>
 </div>
 </body>
 </html>

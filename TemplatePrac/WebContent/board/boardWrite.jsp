@@ -46,7 +46,7 @@
 <h1>게시판 글작성</h1>
 </div>
 <div id="boardWrite">
-<form action="boardRegister.jsp" method="get">
+<form action="board/boardRegister.jsp" method="get">
 <input type="hidden" name="readcount" value="0">
   <ul>
       <li><li><label for="제목"> &nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;</label>
