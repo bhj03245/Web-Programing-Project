@@ -6,6 +6,8 @@
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery.effects.core.js"></script>
 <style>
+body{background-image: url(images/back02.jpg)}
+
 	* {
 		margin: 0;
 		padding: 0;
@@ -31,7 +33,7 @@
 		font-weight: bold;
 		letter-spacing: 1.4px;
 		top:0px; left:0px;
-		position: fixed;
+		position: absolute;
 	}
 	
 	#menu .item {
@@ -39,30 +41,33 @@
 	}
 	
 	.daegu1 {
-		top: 450px;
-		left: 100px;
+		top: 600px;
+		left: 600px;
 	}
 	
 	.daegu2 {
-		top: 350px;
-		left: 200px;
+		top: 500px;
+		left: 700px;
 	}
 	
 	.daegu3 {
-		top: 300px;
-		left: 300px;
+		top: 400px;
+		left: 800px;
 	}
 	
 	.daegu4 {
-		top: 200px;
-		left: 400px;
+		top: 300px;
+		left: 900px;
 	}
 	
 	.daegu5 {
-		top: 400px;
-		left: 500px;
+		top: 500px;
+		left: 1100px;
 	}
-	
+	.daegu6 {
+		top: 400px;
+		left: 1000px;
+	}
 	.item img.circle {
 		position: absolute;
 		top: 0px;
@@ -100,6 +105,10 @@
 	
 	.daegu5 a.icon {
 		background: #0000ff;
+	}
+	
+	.daegu6 a.icon {
+		background: #FF4300;
 	}
 	
 	.item h2 {
@@ -144,7 +153,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="index.jsp"><img src="images/kh.png" title="Main"></a>
 	<div id="menu">
 		<div class="item daegu1">
 			<img src="images/bubble.png" title="" class="circle" /> <a href="#"
@@ -153,7 +161,7 @@
 			<ul>
 				<li><a href="student/student.jsp">student</a></li>
 				<li><a href="professor/professor.jsp">professor</a></li>
-				<li><a href="manager/manager.jsp">manager</a></li>
+				<li><a href="managers/manager.jsp">manager</a></li>
 			</ul>
 		</div>
 		<div class="item daegu2">
@@ -163,7 +171,7 @@
 			<ul>
 				<li><a href="student/student_searchForm.jsp">student</a></li>
 				<li><a href="professor/professor_searchForm.jsp">professor</a></li>
-				<li><a href="manager/manager_searchForm.jsp">manager</a></li>
+				<li><a href="managers/manager_searchForm.jsp">manager</a></li>
 			</ul>
 		</div>
 		<div class="item daegu3">
@@ -173,7 +181,7 @@
 			<ul>
 				<li><a href="student/student_deleteForm.jsp">student</a></li>
 				<li><a href="professor/professor_deleteForm.jsp">professor</a></li>
-				<li><a href="manager/manager_deleteForm.jsp">manager</a></li>
+				<li><a href="managers/manager_deleteForm.jsp">manager</a></li>
 			</ul>
 		</div>
 		<div class="item daegu4">
@@ -181,9 +189,9 @@
 				class="icon"></a>
 			<h2>list</h2>
 			<ul>
-				<li><a href="student/studentList.jsp">student</a></li>
-				<li><a href="professor/professorList.jsp">professor</a></li>
-				<li><a href="manager/managerList.jsp">manager</a></li>
+				<li><a href="studentList.do">student</a></li>
+				<li><a href="professorList.do">professor</a></li>
+				<li><a href="managerList.do">manager</a></li>
 				<li><a href="haksaList">haksaList</a></li>
 			</ul>
 		</div>
@@ -194,7 +202,15 @@
 			<ul>
 				<li><a href="student/student_updateForm.jsp">student</a></li>
 				<li><a href="professor/professor_updateForm.jsp">professor</a></li>
-				<li><a href="manager/manager_updateForm.jsp">manager</a></li>
+				<li><a href="managers/manager_updateForm.jsp">manager</a></li>
+			</ul>
+		</div>
+		<div class="item daegu6">
+			<img src="images/bubble.png" title="" class="circle" /> <a href="#"
+				class="icon"></a>
+			<h2>Mainpage</h2>
+			<ul>
+				<li><a href="index.jsp">Main</a>
 			</ul>
 		</div>
 	</div>

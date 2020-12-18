@@ -4,46 +4,49 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="professorDAO" class="kr.co.kh.academic.ProfessorDAO" scope="page"/>
+<jsp:useBean id="professorDTO" class="kr.co.kh.academic.ProfessorDTO" scope="page"/>
 <!DOCTYPE html>
 <html>
 <head>
 <style>
-	table{border: 3px solid skyblue; border-collapse: collapse; width: 500px; height: 200px;}
+	table{border: 3px solid skyblue; border-collapse: collapse; width:500px; height:200px;}
 	th{border: 1px solid blue; background-color: yellow;}
 </style>
 <meta charset="UTF-8">
 <title>KHJSP</title>
 </head>
 <body>
-<body>
 <h1>교수 전체출력</h1>
+<%
+	ResultSet rs = professorDAO.professorListSql();
+%>
 <table border="1" cellspacing="0" cellpadding="0">
 	<tr>
 		<th>번호</th>
 		<th>나이</th>
 		<th>이름</th>
-		<th>과목</th>
+		<th>학번</th>
 	</tr>
 <%
-	Class.forName("com.mysql.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mysql://underdogb.cafe24.com:3306/underdogb?characterEncoding=utf8", "underdogb", "khacademy1!");
-	//Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/underdogb?characterEncoding=utf8", "underdogb", "khacademy1!"); //cafe24 배포 이후 
-	String sql = "select no,age,name,subject from professorhj";
-	PreparedStatement pstmt = conn.prepareStatement(sql);
-	ResultSet rs = pstmt.executeQuery();
 	while(rs.next()){
-		int no = rs.getInt("no");
-		String age = rs.getString("age");
-		String name = rs.getString("name");
-		String subject = rs.getString("subject");
-		out.print("<tr><td>"+no+"</td>"+"<td>"+age+"</td>"+"<td>"+name+"</td>"+"<td>"+subject+"</td></tr>");
+		professorDTO.setNo(rs.getInt("no"));
+		professorDTO.setAge(rs.getString("age"));
+		professorDTO.setName(rs.getString("name"));
+		professorDTO.setSubject(rs.getString("subject"));
+		out.print("<tr>");
+		out.print("<td>"+professorDTO.getNo()+"</td>");
+		out.print("<td>"+professorDTO.getAge()+"</td>");
+		out.print("<td>"+professorDTO.getName()+"</td>");
+		out.print("<td>"+professorDTO.getSubject()+"</td>");
+		out.print("</tr>");
 	}
-	pstmt.close();
-	rs.close();
-	conn.close();
 %>
 </table>
-<a href="professor.jsp">교수등록</a>
-<a href="../haksaInfo.jsp">학사관리</a>
+<a href="professor.jsp">교수 등록</a>&nbsp;&nbsp;
+<a href="professor_searchForm.jsp">교수 검색</a>&nbsp;&nbsp;
+<a href="professor_deleteForm.jsp">교수 삭제</a>&nbsp;&nbsp;
+<a href="professor_updateForm.jsp">교수 수정</a>&nbsp;&nbsp;
+<a href="../index.jsp?page=haksaInfo">메인 페이지</a>
 </body>
 </html>

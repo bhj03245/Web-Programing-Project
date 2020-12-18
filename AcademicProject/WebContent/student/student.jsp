@@ -22,7 +22,7 @@
 <body>
 <h1>학생등록</h1>
 <div id="studentRegister">
-	<form action="studentRegister.jsp" method="get">
+	<form action="../studentRegister.do" method="get">
 		<ul>
 			<li><label for="나이">나이</label>
 				<input type="number" name="age">
@@ -41,6 +41,6 @@
 	</form>
 </div>
 <a href="studentList.jsp">학생 전체출력</a>
-<a href="../haksaInfo.jsp">학사관리</a>
+<a href="../index.jsp?page=haksaInfo">학사관리</a>
 </body>
 </html>

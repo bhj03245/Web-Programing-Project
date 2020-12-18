@@ -22,7 +22,7 @@
 <body>
 <h1>교수수정</h1>
 <div id="professorUpdate">
-<form action="professor_updateConfirm.jsp" method="get">
+<form action="../professorUpdate.do" method="get">
 <ul>
 	<li><label for="수정할 이름">수정할 이름</label>
 		<input type="text" name="name">
@@ -30,6 +30,7 @@
 	<li><input type="image" src="../images/update.png" class="kh01"></li>
 </ul>
 </form>
+&nbsp;<a href="professorList.jsp">교수 전체 출력</a>
 </div>
 </body>
 </html>

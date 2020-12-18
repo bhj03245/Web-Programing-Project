@@ -22,7 +22,7 @@
 <body>
 <h1>교수검색</h1>
 <div id="professorSearch">
-<form action="professor_search.jsp" method="get">
+<form action="../professorSearch.do" method="get">
 <ul>
 	<li><label for="검색할 이름">검색할 이름</label>
 		<input type="text" name="name">
@@ -30,6 +30,7 @@
 	<li><input type="image" src="../images/search.jpeg" class="kh01"></li>
 </ul>
 </form>
+&nbsp;&nbsp;&nbsp;<a href="professorList.jsp">교수 전체 출력</a>
 </div>
 </body>
 </html>

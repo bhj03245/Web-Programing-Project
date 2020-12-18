@@ -22,7 +22,7 @@
 <body>
 <H1>학생삭제</H1>
 <div id="studentDelete">
-<form action="student_delete.jsp" method="get">
+<form action="../studentDelete.do" method="get">
 <ul>
 	<li><label for="삭제이름">삭제이름</label>
 		<input type="text" name="name">
@@ -30,6 +30,7 @@
 	<li><input type="image" src="../images/delete.jpeg" class="kh01"></li>
 </ul>
 </form>
+&nbsp;&nbsp;&nbsp;<a href="studentList.jsp">학생 전체 출력</a>
 </div>
 </body>
 </html>

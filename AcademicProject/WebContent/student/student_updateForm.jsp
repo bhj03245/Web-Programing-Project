@@ -22,7 +22,7 @@
 <body>
 <H1>학생수정</H1>
 <div id="studentUpdate">
-<form action="student_updateConfirm.jsp" method="get">
+<form action="../studentUpdate.do" method="get">
 <ul>
 	<li><label for="수정할 이름">수정할 이름</label>
 		<input type="text" name="name">
@@ -30,6 +30,8 @@
 	<li><input type="image" src="../images/update.png" class="kh01"></li>
 </ul>
 </form>
+&nbsp;<a href="studentList.jsp">학생 전체 출력</a>
+
 </div>
 </body>
 </html>
