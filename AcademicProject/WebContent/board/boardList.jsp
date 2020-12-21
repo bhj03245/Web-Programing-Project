@@ -1,3 +1,5 @@
+<%@page import="kr.co.kh.board.BoardDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
@@ -37,36 +39,24 @@
 	<th>조회수</th>
 	<th>&nbsp;</th>
 </tr>
-	<%
-		int no = 0;
-		String title = null;
-		String author = null;
-		String content = null;
-		String nal = null;
-		int readcount = 0;
-		
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://underdogb.cafe24.com:3306/underdogb?characterEncoding=utf8", "underdogb", "khacademy1!");
-		//Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/underdogb?characterEncoding=utf8", "underdogb", "khacademy1!"); //cafe24 배포 이후 
-		String sql = "select no,title,content,author,nal,readcount from boardhj";
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		ResultSet rs = pstmt.executeQuery();
-		while(rs.next()){
-			no = rs.getInt("no");
-			title = rs.getString("title");
-			content = rs.getString("content");
-			author = rs.getString("author");
-			nal = rs.getString("nal");
-			readcount = rs.getInt("readcount");
-			out.print("<tr><td>"+no+"</td><td>"+title+"</td><td>"+content+"</td><td>"+author+"</td><td>"+nal+"</td><td>"+readcount+"</td><td><a href=board/boardDelete.jsp?no="+no+">삭제</a></td></tr>");
-		}
-		pstmt.close();
-		rs.close();
-		conn.close();
-	%>
+<%
+	ArrayList<BoardDTO> boardList =(ArrayList<BoardDTO>)request.getAttribute("boardList");
+	for(int i=0;i<boardList.size();i++){
+		BoardDTO boardDTO = boardList.get(i);
+%>
+<tr>
+	<td><%=boardDTO.getNo() %></td>
+	<td><%=boardDTO.getTitle() %></td>
+	<td><%=boardDTO.getContent() %></td>
+	<td><%=boardDTO.getAuthor() %></td>
+	<td><%=boardDTO.getNal() %> </td>
+	<td><%=boardDTO.getReadcount() %></td>
+	<td><a href="boardDelete.bo?no=<%=boardDTO.getNo() %>">삭제</a></td>
+</tr>
+<%} %>
 </table>
 <a href="index.jsp?page=board/boardWrite">게시판글작성</a>&nbsp;&nbsp;&nbsp;
-<a href="index.jsp?page=boardSearchForm">게시판글검색</a>&nbsp;&nbsp;&nbsp;
+<a href="index.jsp?page=board/boardSearchForm">게시판글검색</a>&nbsp;&nbsp;&nbsp;
 <a href="index.jsp?page=board/boardUpdateForm">게시판글수정</a>
 </div>
 </body>

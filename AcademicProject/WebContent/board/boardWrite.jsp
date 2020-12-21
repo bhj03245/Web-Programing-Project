@@ -46,7 +46,7 @@
 <h1>게시판 글작성</h1>
 </div>
 <div id="boardWrite">
-<form action="board/boardRegister.jsp" method="get">
+<form action="boardRegister.bo" method="get">
 <input type="hidden" name="readcount" value="0">
   <ul>
       <li><li><label for="제목"> &nbsp;&nbsp;&nbsp;제목&nbsp;&nbsp;</label>
@@ -63,7 +63,7 @@
       </li>
       <li><input type="image" src="images/finish.jpg">&nbsp;&nbsp;&nbsp; <input type="reset" value="취소" class="reset"></li>
   </ul>
-</form>
+</form> 
 </div>
 </body>
 </html>

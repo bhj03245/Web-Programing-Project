@@ -106,14 +106,14 @@ a:hover{text-decoration: underline;}
 				</li>
 					
 				<li><%if(id!=null){
-					out.print("<a href=index.jsp?page=board/boardList>커뮤니티</a>");
+					out.print("<a href=boardList.bo>커뮤니티</a>");
 				}
 				else{
 					out.print("<a href=index.jsp onclick=alert('로그인하세요')>커뮤니티</a>");
 				}	
 				%>
 				</li>
-				<li><a href="#">모집과정</a></li>
+				<li><a href="mailForm.jsp">자바메일</a></li>
 				<li><a href="#">KH반클래스</a></li>
 				<li><a href="#">포트폴리오</a></li>
 			</ul>

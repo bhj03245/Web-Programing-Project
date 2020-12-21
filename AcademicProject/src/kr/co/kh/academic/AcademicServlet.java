@@ -52,7 +52,7 @@ public class AcademicServlet extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 		
-		if(command.contentEquals("/studentRegister.do")) { //학생 등록
+		if(command.equals("/studentRegister.do")) { //학생 등록
 			String age = request.getParameter("age");
 			String name = request.getParameter("name");
 			String hakbun = request.getParameter("hakbun");
@@ -76,11 +76,11 @@ public class AcademicServlet extends HttpServlet {
 			}
 		} //학생 등록
 		
-		else if(command.contentEquals("/studentList.do")) { //학생 전체 출력
+		else if(command.equals("/studentList.do")) { //학생 전체 출력
 			response.sendRedirect("student/studentList.jsp");
 		} //학생 전체 출력
 		
-		else if(command.contentEquals("/studentDelete.do")) { //학생 삭제
+		else if(command.equals("/studentDelete.do")) { //학생 삭제
 			String deleteName = request.getParameter("name");
 			try {
 				cnt = studentDAO.studentDeleteSql(deleteName);
@@ -91,7 +91,7 @@ public class AcademicServlet extends HttpServlet {
 			} 
 		} // 학생 삭제 
 		
-		else if(command.contentEquals("/studentSearch.do")) { //학생검색
+		else if(command.equals("/studentSearch.do")) { //학생검색
 			String searchName = request.getParameter("name");
 			try {
 				rs = studentDAO.studentSearchSql(searchName);
@@ -114,7 +114,7 @@ public class AcademicServlet extends HttpServlet {
 		
 		} //학생 검색
 		
-		else if(command.contentEquals("/studentUpdate.do")) { //학생수정
+		else if(command.equals("/studentUpdate.do")) { //학생수정
 			updateName = request.getParameter("name");
 			try {
 				rs = studentDAO.studentSearchSql(updateName);
@@ -131,7 +131,7 @@ public class AcademicServlet extends HttpServlet {
 			
 		} //학생 수정
 		
-		else if(command.contentEquals("/studentUpdateConfirm.do")) { //학생 수정 확인
+		else if(command.equals("/studentUpdateConfirm.do")) { //학생 수정 확인
 			out.print("<style>");
 			out.print("ul{list-style-type: none;");
 			out.print("</style>");
@@ -156,7 +156,7 @@ public class AcademicServlet extends HttpServlet {
 			out.print("</form>");
 		} //학생 수정 확인
 		
-		else if(command.contentEquals("/studentUpdateFinal.do")) { //학생 최종 수정
+		else if(command.equals("/studentUpdateFinal.do")) { //학생 최종 수정
 			studentDTO.setName(request.getParameter("name"));
 			studentDTO.setAge(request.getParameter("age"));
 			studentDTO.setHakbun(request.getParameter("hakbun"));
@@ -169,7 +169,7 @@ public class AcademicServlet extends HttpServlet {
 			}
 		} //학생 최종 수정
 		
-		else if(command.contentEquals("/professorRegister.do")) { //교수 등록
+		else if(command.equals("/professorRegister.do")) { //교수 등록
 			String age = request.getParameter("age");
 			String name = request.getParameter("name");
 			String subject = request.getParameter("subject");
@@ -193,11 +193,11 @@ public class AcademicServlet extends HttpServlet {
 			}
 		} //교수 등록
 		
-		else if(command.contentEquals("/professorList.do")) { //교수 전체 출력
+		else if(command.equals("/professorList.do")) { //교수 전체 출력
 			response.sendRedirect("professor/professorList.jsp");
 		} //교수 전체 출력
 		
-		else if(command.contentEquals("/professorDelete.do")) { //교수 삭제
+		else if(command.equals("/professorDelete.do")) { //교수 삭제
 			String deleteName = request.getParameter("name");
 			try {
 				cnt = professorDAO.professorDeleteSql(deleteName);
@@ -208,7 +208,7 @@ public class AcademicServlet extends HttpServlet {
 			} 
 		} //교수 삭제
 		
-		else if(command.contentEquals("/professorSearch.do")) { //교수 검색
+		else if(command.equals("/professorSearch.do")) { //교수 검색
 			String searchName = request.getParameter("name");
 			try {
 				rs = professorDAO.professorSearchSql(searchName);
@@ -231,7 +231,7 @@ public class AcademicServlet extends HttpServlet {
 		} //교수 검색
 		
 		
-		else if(command.contentEquals("/professorUpdate.do")) { //교수 수정
+		else if(command.equals("/professorUpdate.do")) { //교수 수정
 			updateName = request.getParameter("name");
 			try {
 				rs = professorDAO.professorSearchSql(updateName);
@@ -248,7 +248,7 @@ public class AcademicServlet extends HttpServlet {
 			
 		} //교수 수정
 		
-		else if(command.contentEquals("/professorUpdateConfirm.do")) { //교수 수정 확인
+		else if(command.equals("/professorUpdateConfirm.do")) { //교수 수정 확인
 			out.print("<style>");
 			out.print("ul{list-style-type: none;");
 			out.print("</style>");
@@ -273,7 +273,7 @@ public class AcademicServlet extends HttpServlet {
 			out.print("</form>");
 		} //교수 수정 확인
 		
-		else if(command.contentEquals("/professorUpdateFinal.do")) { //교수 최종 수정
+		else if(command.equals("/professorUpdateFinal.do")) { //교수 최종 수정
 			professorDTO.setName(request.getParameter("name"));
 			professorDTO.setAge(request.getParameter("age"));
 			professorDTO.setSubject(request.getParameter("subject"));
@@ -286,7 +286,7 @@ public class AcademicServlet extends HttpServlet {
 			}
 		} //교수 최종 수정
 		
-		else if(command.contentEquals("/managerRegister.do")) { //관리자 등록
+		else if(command.equals("/managerRegister.do")) { //관리자 등록
 			String age = request.getParameter("age");
 			String name = request.getParameter("name");
 			String part = request.getParameter("part");
@@ -310,11 +310,11 @@ public class AcademicServlet extends HttpServlet {
 			}
 		} //관리자 등록
 		
-		else if(command.contentEquals("/managerList.do")) { //관리자 전체 출력
+		else if(command.equals("/managerList.do")) { //관리자 전체 출력
 			response.sendRedirect("managers/managerList.jsp");
 		} //관리자 전체 출력
 		
-		else if(command.contentEquals("/managerDelete.do")) { //관리자 삭제
+		else if(command.equals("/managerDelete.do")) { //관리자 삭제
 			String deleteName = request.getParameter("name");
 			try {
 				cnt = managerDAO.managerDeleteSql(deleteName);
@@ -325,7 +325,7 @@ public class AcademicServlet extends HttpServlet {
 			} 
 		} //관리자 삭제
 		
-		else if(command.contentEquals("/managerSearch.do")) { //관리자 검색
+		else if(command.equals("/managerSearch.do")) { //관리자 검색
 			String searchName = request.getParameter("name");
 			try {
 				rs = managerDAO.managerSearchSql(searchName);
@@ -348,7 +348,7 @@ public class AcademicServlet extends HttpServlet {
 		} //관리자 검색
 		
 		
-		else if(command.contentEquals("/managerUpdate.do")) { //관리자 수정
+		else if(command.equals("/managerUpdate.do")) { //관리자 수정
 			updateName = request.getParameter("name");
 			try {
 				rs = managerDAO.managerSearchSql(updateName);
@@ -365,7 +365,7 @@ public class AcademicServlet extends HttpServlet {
 			
 		} //관리자 수정
 		
-		else if(command.contentEquals("/managerUpdateConfirm.do")) { //관리자 수정 확인
+		else if(command.equals("/managerUpdateConfirm.do")) { //관리자 수정 확인
 			out.print("<style>");
 			out.print("ul{list-style-type: none;");
 			out.print("</style>");
@@ -390,7 +390,7 @@ public class AcademicServlet extends HttpServlet {
 			out.print("</form>");
 		} //관리자 수정 확인
 		
-		else if(command.contentEquals("/managerUpdateFinal.do")) { //관리자 최종 수정
+		else if(command.equals("/managerUpdateFinal.do")) { //관리자 최종 수정
 			managerDTO.setName(request.getParameter("name"));
 			managerDTO.setAge(request.getParameter("age"));
 			managerDTO.setPart(request.getParameter("part"));
