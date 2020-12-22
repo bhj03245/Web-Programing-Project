@@ -21,10 +21,10 @@
 </head>
 <body>
 <div id="boardUpdateForm">
-<form action="board/boardUpdateConfirm.jsp" method="get">
+<form action="boardUpdateSearch.bo" method="get">
 	<ul>
 		<li><label for="수정할제목">수정할제목&nbsp;</label>
-			<input type="text" name="searchTitle" autofocus="autofocus" placeholder="수정할 제목을 입력" required="required">
+			<input type="text" name="updateTitle" autofocus="autofocus" placeholder="수정할 제목을 입력" required="required">
 		</li>
 		<li><input type="image" src="images/update.png" class="update"></li>
 	</ul>

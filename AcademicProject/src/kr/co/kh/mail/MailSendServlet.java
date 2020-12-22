@@ -30,7 +30,7 @@ public class MailSendServlet extends HttpServlet {
 		 request.setCharacterEncoding("UTF-8");
          String sender = request.getParameter("sender");
          String receiver = request.getParameter("receiver");
-         String subject = request.getParameter("subject");
+         String subject = request.getParameter("title");
          String content = request.getParameter("content");
          response.setContentType("text/html;charset=UTF-8");
          PrintWriter out = response.getWriter();

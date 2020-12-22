@@ -26,7 +26,7 @@
 <table>
 	<tr><td>발신자 이메일: </td><td><input type="text" name="sender"></td></tr>
 	<tr><td>수신자 이메일: </td><td><input type="text" name="receiver"></td></tr>
-	<tr><td>제목: </td><td><input type="text" name="titler"></td></tr>
+	<tr><td>제목: </td><td><input type="text" name="title"></td></tr>
 	<tr>
 		<td>내용: </td>
 		<td><textarea name="content" cols="40" rows="20"></textarea></td>

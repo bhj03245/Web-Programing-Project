@@ -19,7 +19,7 @@ public class BoardServlet extends HttpServlet {
 	private BoardDAO boardDAO;
 	private int cnt;
 	private ArrayList<BoardDTO> boardList;
-	private String titleUpdate;
+	private String updateTitle;
 
 	public BoardServlet() {
 	    try {
@@ -92,6 +92,39 @@ public class BoardServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		} //게시판 글 검색
+		 
+		else if(command.equals("/boardUpdateSearch.bo")) {//게시판 글 수정
+			updateTitle = request.getParameter("updateTitle");
+			try {
+				boardDTO = boardDAO.boardSearch(updateTitle);
+				RequestDispatcher dis = request.getRequestDispatcher("index.jsp?page=board/boardUpdateConfirm");
+				request.setAttribute("boardDTO", boardDTO);
+				dis.forward(request, response);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} //게시판 글 수정
+		
+		else if(command.equals("/boardUpdate.bo")) {//게시판 글 수정
+			boardDTO.setNo(Integer.parseInt(request.getParameter("no")));
+			boardDTO.setTitle(request.getParameter("title"));
+			boardDTO.setContent(request.getParameter("content"));
+			boardDTO.setAuthor(request.getParameter("author"));
+			boardDTO.setNal(request.getParameter("nal"));
+			boardDTO.setReadcount(Integer.parseInt(request.getParameter("readcount")));
+			try {
+				cnt = boardDAO.boardUpdate(boardDTO,updateTitle);
+				
+				boardList = boardDAO.boardList();
+				RequestDispatcher dis = request.getRequestDispatcher("index.jsp?page=board/boardList");
+				request.setAttribute("boardList", boardList);
+				dis.forward(request, response);
+				
+				//response.sendRedirect("boardList.bo");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} //게시판 글 수정
 	}
 
 }

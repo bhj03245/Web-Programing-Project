@@ -103,4 +103,18 @@ public class BoardDAO {
 		pstmt.setInt(2, boardDTO.getNo());
 		cnt = pstmt.executeUpdate();
 	} //조회수
+	
+	public int boardUpdate(BoardDTO boardDTO, String searchTitle) throws SQLException{ //게시판 글 수정
+			conn = getConnection();
+			sql = "update boardhj set title=?, content=?, author=?, nal=?, readcount=? where title=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,boardDTO.getTitle());
+			pstmt.setString(2,boardDTO.getContent());
+			pstmt.setString(3,boardDTO.getAuthor());
+			pstmt.setString(4,boardDTO.getNal());
+			pstmt.setInt(5, boardDTO.getReadcount());
+			pstmt.setString(6, searchTitle);
+			cnt = pstmt.executeUpdate();
+			return cnt;
+	} //게시판 글 수정
 }
