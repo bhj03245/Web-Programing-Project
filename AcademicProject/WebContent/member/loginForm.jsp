@@ -26,7 +26,7 @@
 <body>
 <div id="loginForm">
 	<h1>로그인</h1>
-	<form action="member/login.jsp" method="get">
+	<form action="memberLogin.mb" method="get">
 		<ul>
 			<li><label for="아이디">&nbsp;아&nbsp;이&nbsp;디&nbsp;</label>
 				<input type="text" name="id" maxlength="20" size="20" autofocus="autofocus" required="required" placeholder="아이디를 입력하세요">

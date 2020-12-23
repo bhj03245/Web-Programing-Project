@@ -95,6 +95,7 @@ public class BoardServlet extends HttpServlet {
 		 
 		else if(command.equals("/boardUpdateSearch.bo")) {//게시판 글 수정
 			updateTitle = request.getParameter("updateTitle");
+			System.out.println(updateTitle);
 			try {
 				boardDTO = boardDAO.boardSearch(updateTitle);
 				RequestDispatcher dis = request.getRequestDispatcher("index.jsp?page=board/boardUpdateConfirm");

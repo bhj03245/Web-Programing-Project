@@ -23,7 +23,7 @@
 <body>
 <div id="memberout">
 <h1>회원 탈퇴</h1>
-<form action="memberout.jsp" method="get">
+<form action="memberDelete.mb" method="get">
 	<ul>
 		<li><label for="패스워드">패스워드</label>
 		     <input type="password" name="pw" required="required" autofocus="autofocus" placeholder="탈퇴할 패스워드 입력">
