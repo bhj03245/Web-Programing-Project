@@ -126,7 +126,7 @@ a:hover{text-decoration: underline;}
       	if(id!=null){
       		out.print("<a href=memberLogout.mb>로그아웃|</a>");
       		out.print("<a href=memberList.mb>회원목록|</a>");
-      		out.print("<a href='member/memberoutForm.jsp'  onclick=confirm('정말 탈퇴하시겠습니까?')>회원탈퇴</a><br>");	
+      		out.print("<a href=member/memberoutForm.jsp onclick=confirm('정말 탈퇴하시겠습니까?')>회원탈퇴</a><br>");	
       	}
       	else{
       		out.print("<a href=index.jsp?page=member/memberForm>회원가입|</a>");

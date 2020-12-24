@@ -42,8 +42,8 @@
 	<tr>
 		<td><%=memberDTO.getId()%></td>
 		<td><%=memberDTO.getPw()%></td>
-		<td><%=memberDTO.getTel()%></td>
 		<td><%=memberDTO.getAddr()%></td>
+		<td><%=memberDTO.getTel()%></td>
 	</tr>
 	<%} %>
 </table>

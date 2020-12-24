@@ -63,10 +63,12 @@ public class MemberDAO {
 		return memberList;
 	}
 	
-	public int memberDelete(String deleteID) throws SQLException{
+	public int memberDelete(String deleteId, String deletePw) throws SQLException{
 		conn = getConnection();
-		sql = "delete from memberhj where id = ?";
-		pstmt.setString(1, deleteID);
+		sql = "delete from memberhj where id = ? and pw = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, deleteId);
+		pstmt.setString(2, deletePw);
 		cnt = pstmt.executeUpdate();
 		return cnt; 
 	}
@@ -85,4 +87,57 @@ public class MemberDAO {
 		return memberDTO;
 	}
 	
+	public String memberidCheck(String tel) throws SQLException{
+		conn = getConnection();
+		sql = "select id from memberhj where tel=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, tel);
+		rs=pstmt.executeQuery();
+		String id = null;
+		while(rs.next()) {
+			id = rs.getString("id");
+		}
+		return id;
+	}
+	
+	public String memberpwCheck(String id) throws SQLException{
+		conn = getConnection();
+		sql = "select pw from memberhj where id = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, id);
+		rs = pstmt.executeQuery();
+		String pw = null;
+		while(rs.next()) {
+			pw = rs.getString("pw");
+		}
+		return pw;
+	}
+	
+	public MemberDTO memberUpdateConfirm(String id) throws SQLException{
+		conn = getConnection();
+		sql = "select id, pw, addr, tel from memberhj where id = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, id);
+		rs = pstmt.executeQuery();
+		while(rs.next()) {
+			memberDTO.setId(rs.getString("id"));
+			memberDTO.setPw(rs.getString("pw"));
+			memberDTO.setAddr(rs.getString("addr"));
+			memberDTO.setTel(rs.getString("tel"));
+		}
+		return memberDTO;
+	}
+	
+	public int memberUpdateFinal(MemberDTO memberDTO, String updateID) throws SQLException{
+		conn = getConnection();
+		sql = "update memberhj set id=?,pw=?,addr=?,tel=? where id=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, memberDTO.getId());
+		pstmt.setString(2, memberDTO.getPw());
+		pstmt.setString(3, memberDTO.getAddr());
+		pstmt.setString(4, memberDTO.getTel());
+		pstmt.setString(5, updateID);
+		cnt = pstmt.executeUpdate();
+		return cnt;
+	}
 }

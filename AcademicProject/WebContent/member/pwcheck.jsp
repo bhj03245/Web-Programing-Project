@@ -23,7 +23,7 @@
 <body>
 <div id="pwcheck">
 <h1>비밀번호 찾기</h1>
-<form action="pwcheckConfirm.jsp" method="get">
+<form action="../memberpwCheck.mb" method="get">
 	<ul>
 		<li><label for="아이디">아이디</label>
 		<input type="text" name="id" autofocus="autofocus" required="required" placeholder="아이디입력">

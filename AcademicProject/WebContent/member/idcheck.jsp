@@ -23,7 +23,7 @@
 <body>
 <div id="idcheck">
 <h1>아이디 찾기</h1>
-<form action="idcheckConfirm.jsp" method="get">
+<form action="../memberidCheck.mb" method="get">
 	<ul>
 		<li><label for="전화번호">전화번호</label>
 		     <input type="text" name="tel" required="required" autofocus="autofocus" placeholder="전화번호입력">

@@ -65,15 +65,21 @@ public class MemberServlet extends HttpServlet {
 		}
 		
 		else if(command.equals("/memberDelete.mb")) { //회원 탈퇴
-			String deleteID = request.getParameter("id");
-			try {
-				cnt = memberDAO.memberDelete(deleteID);
-				RequestDispatcher dis = request.getRequestDispatcher("index.jsp?page=member/memberList");
-				dis.forward(request,response);
-						
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}	
+			String pw = request.getParameter("pw");
+			String deletePw = (String)session.getAttribute("pw");
+			String deleteId = (String)session.getAttribute("id");	
+			if(pw.equals(deletePw)) {
+				try {
+					cnt = memberDAO.memberDelete(deleteId,deletePw);
+					session.invalidate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				out.print("<script>alert('회원탈퇴 되었습니다.'); location.href='index.jsp';</script>");
+			}
+			else {
+				out.print("<script>alert('비밀번호가 틀립니다.'); location.href='index.jsp';</script>");
+			}
 		} //회원 탈퇴
 		
 		else if(command.equals("/memberLogin.mb")) { //로그인
@@ -94,6 +100,7 @@ public class MemberServlet extends HttpServlet {
 			else {
 	            session = request.getSession();
 	            session.setAttribute("id", id);
+	            session.setAttribute("pw", pw);
 	            response.sendRedirect("index.jsp");
 			}
 		} //로그인
@@ -103,13 +110,58 @@ public class MemberServlet extends HttpServlet {
 			out.print("<script>alert('로그아웃 되었습니다.'); location.href='index.jsp';</script>"); 
 		} //로그아웃
 		
-		else if(command.equals("/")) {
-			
-		}
+		else if(command.equals("/memberidCheck.mb")) { //아이디 찾기
+			String tel = request.getParameter("tel");
+			try {
+				String id = memberDAO.memberidCheck(tel);
+				out.print("<script>alert('찾으신 아이디는"+id+"입니다.'); location.href='index.jsp';</script>"); 
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} //아이디 찾기
 		
-		else if(command.equals("/")) {
-			
-		}
+		else if(command.equals("/memberpwCheck.mb")) { //패스워드 찾기
+			String id = request.getParameter("id");
+			try {
+				String pw = memberDAO.memberpwCheck(id);
+				out.print("<script>alert('찾으신 비밀번호는"+pw+"입니다.'); location.href='index.jsp';</script>"); 
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} //패스워드 찾기
+		
+		else if(command.equals("/memberUpdateConfirm.mb")) { //회원 수정
+			String id = request.getParameter("id");
+			String updateID = (String)session.getAttribute("id");	
+			try {
+				if(id.equals(updateID)) {
+					memberDTO = memberDAO.memberUpdateConfirm(id);
+					RequestDispatcher dis = request.getRequestDispatcher("index.jsp?page=member/memberUpdateConfirm");
+					request.setAttribute("memberDTO", memberDTO);
+					dis.forward(request, response);
+				}
+				else {
+					out.print("<script>alert('로그인한 정보로만 수정이 가능합니다.'); location.href='memberList.mb';</script>");  
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} //회원수정
+		
+		else if(command.equals("/memberUpdateFinal.mb")) { //회원 최종 수정
+			memberDTO.setId(request.getParameter("id"));
+			memberDTO.setPw(request.getParameter("pw"));
+			memberDTO.setAddr(request.getParameter("addr"));
+			memberDTO.setTel(request.getParameter("tel"));
+			String updateID = request.getParameter("updateId");
+			try {
+				cnt = memberDAO.memberUpdateFinal(memberDTO,updateID);
+				out.print("<script>alert('회원정보가 수정되었습니다.'); location.href='memberList.mb';</script>");  
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} //회원 최종 수정
+		
 	}
 
 }

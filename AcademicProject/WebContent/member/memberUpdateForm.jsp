@@ -23,7 +23,7 @@
 <body>
 <div id="memberUpdateForm">
 <h1>회원수정</h1>
-	<form action="member/memberUpdateConfirm.jsp" method="get">
+	<form action="memberUpdateConfirm.mb" method="get">
 		<ul>
 			<li><h3>정보를 수정할 아이디를 입력하세요.</h3></li>
 			<li><label for="아이디">아&nbsp;&nbsp;이&nbsp;&nbsp;디&nbsp;&nbsp;</label>
