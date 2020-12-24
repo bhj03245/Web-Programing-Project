@@ -7,90 +7,9 @@
 <title>KH정보교육원</title>
 <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
 <script src="js/jquery.innerfade.js"></script>
-<style>
-body {
-	font-family: Arial, sans-serif;
-	font-size: 14px;
-	line-height: 1.6;
-}
-
-#news1{
-	position:absolute;
-	top: 120px; left:600px;
-	width: 500px; height: 100px;
-	font-size: 15px;
-}
-
-#ALL {
-	width: 700px;
-	margin: 30px auto;
-	background: #FFF;
-	padding: 20px;
-}
-
-.menu {
-	height: 45px;
-	background: #000;
-}
-
-.menu ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-.menu ul li {
-	float: left;
-	overflow: hidden;
-	text-align: center;
-	line-height: 45px;
-}
-
-.menu ul li a {
-	position: relative;
-	display: block;
-	width: 110px;
-	height: 45px;
-	color: #FFF;
-	font-family: Arial;
-	font-size: 11px;
-	font-weight: bold;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.menu ul li a span {
-	position: absolute;
-	top: 0px;
-	left: 0;
-	width: 110px;
-}
-
-.menu ul li a span.over {
-	top: -45px;
-}
-
-.menu ul li a span.over {
-	background: #FFF;
-	color: #000;
-}
-
-#homeregister{
-	position: absolute;
-	right:10px; top:0px;
-	width:250px; hegith:100px;
-	/*border:1px solid red;*/
-	font-size:15px;
-}
-ul{list-style-type: none;}
-a{text-decoration: none; color: black;}
-a:hover{text-decoration: underline;}
-</style>
+<link href="css/top.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
 	<div id="ALL">
 		<img src="images/kh.png">
 		<div class="menu">
@@ -155,43 +74,6 @@ a:hover{text-decoration: underline;}
       </ul>
    </div>
 	
-	<script type="text/javascript">
-		$(function() {
-
-			$(".menu li a").wrapInner('<span class="out"></span>');
-
-			$(".menu li a").each(
-					function() {
-						$('<span class="over">' + $(this).text() + '</span>')
-								.appendTo(this);
-					});
-
-			$(".menu li a").hover(function() {
-				$(".out", this).stop().animate({
-					'top' : '45px'
-				}, 200);
-				$(".over", this).stop().animate({
-					'top' : '0px'
-				}, 200);
-
-			}, function() {
-				$(".out", this).stop().animate({
-					'top' : '0px'
-				}, 200);
-				$(".over", this).stop().animate({
-					'top' : '-45px'
-				}, 200);
-			});
-
-		});
-		
-		$('#news').innerfade({
-	         animationtype: 'slide',
-	         speed: 750,
-	         timeout: 2000,
-	         type: 'sequence',
-	         containerheight: '1em'
-	      });
-	</script>
+<script src="js/top.js"></script>
 </body>
 </html>
