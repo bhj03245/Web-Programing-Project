@@ -57,6 +57,25 @@ public class BoardServlet extends HttpServlet {
 			}
 		} //게시판 등록
 		
+		else if(command.equals("/boardList.bo")) { //게시판 전체 출력(페이징)
+			try {
+				int curPage = 1; //기본 페이지
+				if(request.getParameter("curPage")!=null) {
+					curPage = Integer.parseInt(request.getParameter("curPage"));
+				}
+				PageTo boardList = boardDAO.pageTo(curPage);
+				RequestDispatcher dis = request.getRequestDispatcher("index.jsp?page=board/list");
+				request.setAttribute("page", boardList);
+				//listPage.jsp에서 목록리스트 데이터 저장
+				request.setAttribute("list", boardList.getList());
+				// page.jsp에서 페이징 처리 데이터 저장
+				dis.forward(request, response);
+			} catch (SQLException e) {	
+				e.printStackTrace();
+			}	
+		} //게시판 전체 출력(페이징)
+		 
+		 /*
 		else if(command.equals("/boardList.bo")) { //게시판 전체 출력
 			try {
 				boardList = boardDAO.boardList();
@@ -68,7 +87,8 @@ public class BoardServlet extends HttpServlet {
 			}
 			
 		}//게시판 전체출력
-		
+		*/
+		 
 		else if(command.equals("/boardDelete.bo")) { //게시판 글 삭제
 			String no1 = request.getParameter("no");
 			int no = Integer.parseInt(no1);
@@ -115,7 +135,6 @@ public class BoardServlet extends HttpServlet {
 			boardDTO.setReadcount(Integer.parseInt(request.getParameter("readcount")));
 			try {
 				cnt = boardDAO.boardUpdate(boardDTO,updateTitle);
-				
 				boardList = boardDAO.boardList();
 				RequestDispatcher dis = request.getRequestDispatcher("index.jsp?page=board/boardList");
 				request.setAttribute("boardList", boardList);
