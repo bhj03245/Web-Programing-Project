@@ -20,6 +20,17 @@
 	ul{list-style-type: none;}
 	h1{text-align: center;}
 </style>
+<script type="text/javascript">
+	function win01(idform){
+		if(idform.id.value=="" || idform.id.value==" "){
+			alert('ID를 입력해주세요.');
+		}
+		else{
+			window.open("idcheck.mb?id="+idform.id.value,"win01","width=200 height=100");
+		}
+		
+	}
+</script>
 <meta charset="UTF-8">
 <title>KHJSP</title>
 </head>
@@ -30,6 +41,7 @@
 		<ul>
 			<li><label for="아이디">아&nbsp;&nbsp;이&nbsp;&nbsp;디&nbsp;&nbsp;</label>
 				<input type="text" name="id" size="20" maxlength="20" autofocus="autofocus" required="required" placeholder="아이디를입력하세요.">
+				<input type="button" value="아이디중복확인" onclick="win01(this.form)">
 			</li>
 			<li><label for="패스워드">패스워드&nbsp;&nbsp;</label>
 				<input type="password" name="pw" size="20" maxlength="" placeholder="패스워드입력">

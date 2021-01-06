@@ -33,8 +33,8 @@
 				%>
 				</li>
 				<li><a href="mailForm.jsp">자바메일</a></li>
-				<li><a href="#">KH반클래스</a></li>
-				<li><a href="#">포트폴리오</a></li>
+				<li><a href="zoomkh.jsp">KH반클래스</a></li>
+				<li><a href="thumbnail.jsp">포트폴리오</a></li>
 			</ul>
 		</div>
 	</div>

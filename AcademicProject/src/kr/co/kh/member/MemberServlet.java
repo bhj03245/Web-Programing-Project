@@ -2,6 +2,7 @@ package kr.co.kh.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -162,6 +163,22 @@ public class MemberServlet extends HttpServlet {
 			}
 		} //회원 최종 수정
 		
+		else if(command.equals("/idcheck.mb")) { //ID중복찾기
+			String searchID = request.getParameter("id");
+			try {
+				ResultSet rs = memberDAO.IDcheck(searchID);
+				if(!rs.isBeforeFirst()){
+					out.print("사용가능한 ID입니다.");
+					out.print("<input type='button' value='종료' onclick='self.close()'>");
+				}
+				else{
+					out.print("해당 ID는 이미 사용중입니다.");
+					out.print("<input type='button' value='종료' onclick='self.close()'>");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} //ID중복 찾기
 	}
 
 }

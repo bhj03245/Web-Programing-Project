@@ -24,7 +24,7 @@
 	<ul id="portfolio"> 
 		<li>
 			<a href="index.jsp?page=haksaInfo">
-				<img src="images/cat.jpg" title="image1" class="khmain"/>
+				<img src="images/cat1.jpg" title="image1" class="khmain"/>
 			</a>
 		</li>
 		<li>

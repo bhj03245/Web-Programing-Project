@@ -11,8 +11,8 @@
 <body>
 <ul id="leftmenu">
  <li class="daegu1"><a href="index.jsp">메인페이지</a></li>
- <li class="daegu2"><a href="index.jsp">심리학과</a></li>
- <li class="daegu3"><a href="">컴퓨터공학과</a></li>
+ <li class="daegu2"><a href="fileUploadForm.jsp">파일 업로드</a></li>
+ <li class="daegu3"><a href="cat.jsp">고양이</a></li>
  <li class="daegu4"><a href="">행정학과</a></li>
  <li class="daegu5"><a href="">국어국문학과</a></li>
  <li class="daegu6"><a href="">대구가톨릭대학교</a></li>

@@ -140,4 +140,13 @@ public class MemberDAO {
 		cnt = pstmt.executeUpdate();
 		return cnt;
 	}
+	
+	public ResultSet IDcheck(String searchId) throws SQLException{
+		conn = getConnection();
+		sql = "select id from memberhj where id = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1,searchId);
+		rs = pstmt.executeQuery();
+		return rs;
+	}
 }
