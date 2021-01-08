@@ -17,24 +17,25 @@
 <script src="js/jquery-1.10.2.js"></script>
 </head>
 <body>
-<form action="result.html" method="post">
+<form action="memberJoin.do" method="post">
        <fieldset>
            <legend>회원가입</legend>
            <ul>
-               <li><label for="userid">아이디</label></li>
-               <li><input type="text" name="userid" size="10" required="required" id="userid"></li><br>
-               <li><label for="password">패스워드</label></li>
+               <li><label for="userid">회원 ID</label></li>
+               <li><input type="text" name="userid" size="10" required="required" id="userid"></li> <span id="idspan"></span><br>
+               <li><label for="password">회원 PW</label></li>
                <li><input type="password" name="password" id="password" size="10" required="required"></li>
-               <span id="out"></span>
-               <br>
-               <li><label for="check_pw">패스워드확인</label></li>
-               <li><input type="password" id="check_pw" size="10" required="required"></li><br>
+               <span id="passwordspan"></span><br>
+               <li><label for="check_pw">회원 PW확인</label></li>
+               <li><input type="password" id="check_pw" size="10" required="required"></li> <span id="pwchkspan"></span><br>
+                <li><label for="name">회원 이름</label></li>
+                <li><input type="text" name="name" id="name" size="10" required="required"></li><span id="namespan"></span><br>
+                
                <li>성별</li>
-               <li><label>남<input type="radio" name="gender" class="gender1" value="M"></label>
+               <li><label>남<input type="radio" name="gender" class="gender1" value="M" checked="checked"></label>
                    <label>여<input type="radio" name="gender" class="gender1" value="F"></label></li>
-                   <br>
-                <li><label for="email">이메일</label></li>
-                <li><input type="email" name="email" id="email" size="10" required="required"></li><br><br>
+                   <span id="genderspan"></span><br>
+               
                 <li>
                     <input type="submit" value="회원가입">
                     <input type="reset" value="취소">
@@ -44,41 +45,74 @@
    </form> 
 <script>
     $(function(){
-        $('#userid').blur(function(){
-            var value = $("#userid").val().trim();
-            var reg = /^[A-Z][A-za-z0-9]{4,}/;
-            if(!reg.test(value)){
-                alert('5글자이상, 첫글자는 대문자이고, 영문자, 숫자만 가능')
-                $('#userid').val('');
-            }
+        $('#userid').focusin(function(){
+            $("#idspan").html("소문자 시작, 소문자 및 숫자로 4~10글자만 입력해주세요");
+            $("#idspan").css({'color':'blue','font-weight':'bold'});
         }); 
+        $('#userid').focusout(function(){
+              $("#idspan").html("");
+        });
         
-        $("#check_pw").keyup(function(){
-            var pw1 = $('#password').val().trim(); 
-            if(pw1==""){
-                alert("패스워드를 입력하세요");
-                $("#check_pw").val('');
-                $("#password").focus();
-            }
-            var pw2=$("#check_pw").val().trim();
-            if(pw1.length!=0 && pw2.length!=0){
-                if(pw1==pw2){
-                    $("#out").html("패스워드가 일치합니다.");
-                    $("#out").css({'color':'green','font-weight':'bold'});
-                }else{
-                    $("#out").html("패스워드가 일치하지 않습니다.");
-                    $("#out").css({'color':'red','font-weight':'bold'});
-                }
-            }
+        $('#password').focusin(function(){
+            $("#passwordspan").html("소문자, 대문자, 숫자로 8~12글자만 입력해주세요")
+            $("#passwordspan").css({'color':'blue','font-weight':'bold'});
+        });
+        $('#password').focusout(function(){
+              $("#passwordspan").html("");
+        });
+        
+        $("#check_pw").focusin(function(){
+            $("#pwchkspan").html("비밀번호 재입력");
+            $("#pwchkspan").css({'color':'blue','font-weight':'bold'});       
+        });
+        $('#check_pw').focusout(function(){
+              $("#pwchkspan").html("");
+        });
+        
+        $('#name').focusin(function(){
+            $("#namespan").html("한글로만 2~5글자 입력해주세요");
+            $("#namespan").css({'color':'blue','font-weight':'bold'});               
+        });
+        $('#name').focusout(function(){
+              $("#namespan").html("");
         });
         
         $("form").submit(function(){
-              var rcheck = $(".gender1:checked").length;
+            var idvalue = $("#userid").val().trim();
+            var reg1 = /^[a-z][a-z0-9]{3,9}/;
+            if(!reg1.test(idvalue)){
+                alert("ID를 다시 확인하고 입력해주세요.");
+                return false;
+            }
+            
+            var pw1 = $('#password').val().trim(); 
+            var pw2=$("#check_pw").val().trim();
+            var reg2 = /^[A-za-z0-9]{7,11}/;
+            if(pw1.length!=0 && pw2.length!=0){
+                if(pw1!=pw2){
+                   alert("PW를 다시 확인하고 입력해주세요.");
+                    return false;
+                }
+            }
+            if(!reg2.test(pw1) || !reg2.test(pw2)){
+                alert("PW를 다시 확인하고 입력해주세요.");
+                return false;
+            }
+            
+            var namevalue = $("#name").val().trim();
+            var reg3 = /^[가-힣]{1,4}$/;
+            if(!reg3.test(namevalue)){
+                alert("이름을 다시 확인하고 입력해주세요.")
+                return false;
+            }
+           
+            
+            var rcheck = $(".gender1:checked").length;
               if(rcheck==0){
                 alert("성별을 선택하세요");
                 return false;
              }    
-        });
+        }); 
     });
 </script>
 </body>
